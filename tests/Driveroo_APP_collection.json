@@ -1378,8 +1378,7 @@
 									"});",
 									"",
 									"pm.test(\"Check shema JSON responce\", function () {",
-									"    pm.expect(responseJson.data.work_order.reporter.name).to.be.equal(\"Chuck Norris\");",
-									"    pm.expect(responseJson.data.work_order.assignee.name).to.be.equals(\"Freddie  Mercury\");",
+									"    pm.expect(responseJson.data.reporter.name).to.be.equal(\"Chuck Norris\");",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1512,7 +1511,7 @@
 								"exec": [
 									"let responseJson = pm.response.json();",
 									" console.log(responseJson.request_id);",
-									"pm.globals.set(\"request_id_fleet\", responseJson.request_id);",
+									"pm.collectionVariables.set(\"request_id_fleet\", responseJson.request_id);",
 									"",
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -1980,14 +1979,44 @@
 	],
 	"variable": [
 		{
-			"id": "320cd8a4-4555-4bf1-959e-96c6d38d49c6",
+			"id": "d7937a9c-87b6-422c-a6b2-81d4892eb599",
 			"key": "token_id_Prov",
 			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGFzcyI6InByb3ZpZGVyIiwic3ViIjo1NywiaXNzIjoiaHR0cHM6Ly9zYW5kYm94LmRyaXZlcm9vLmNvbS9wcm92aWRlci9wcm9maWxlIiwiaWF0IjoxNjA0NDMzMDI2LCJleHAiOjI1NTA1MTMwMjYsIm5iZiI6MTYwNDQzMzAyNiwianRpIjoiOE5VbHRCMzA3Tk5ZTWJCSiJ9.y58Axr9qP47kHpIeXNl3WgTwiAKNJAo0hgt29RB3V50"
 		},
 		{
-			"id": "32957af9-e489-4152-862d-3c58807dca91",
+			"id": "5edda8e8-b11a-40b9-a81a-326cdcd48153",
 			"key": "token_id",
 			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGFzcyI6InVzZXIiLCJzdWIiOjI4NTMsImlzcyI6Imh0dHBzOi8vc2FuZGJveC5kcml2ZXJvby5jb20vdXNlckFwaS9mbGVldHMvbG9naW4iLCJpYXQiOjE2MDUxOTYyMTAsImV4cCI6MjU1MTI3NjIxMCwibmJmIjoxNjA1MTk2MjEwLCJqdGkiOiJlYTA4d2poWlQyU3U4cWhJIn0.u3_KfegPYo3pY-gYpAcoY1QBzI6onOw47DL2Tx_aM3c"
+		},
+		{
+			"id": "2afb6e1a-5bb5-4366-99fd-3bf6117f42e4",
+			"key": "car_id_resolve",
+			"value": ""
+		},
+		{
+			"id": "af17c1e2-6600-4dfa-ada1-62bf3ff9b829",
+			"key": "request_id_fleet",
+			"value": ""
+		},
+		{
+			"id": "99844e30-f957-4032-a8bc-6e5892a7ac0e",
+			"key": "issues_id[0]",
+			"value": ""
+		},
+		{
+			"id": "62d14a4d-0550-48ab-85a9-2c17f3690c50",
+			"key": "issues_id[1]",
+			"value": ""
+		},
+		{
+			"id": "acc97178-9639-4f63-93d5-b31c90e34497",
+			"key": "issues_id[2]",
+			"value": ""
+		},
+		{
+			"id": "966e8f82-2304-4118-a7c9-3238dd25cbe1",
+			"key": "work_order_id",
+			"value": ""
 		}
 	],
 	"protocolProfileBehavior": {}
