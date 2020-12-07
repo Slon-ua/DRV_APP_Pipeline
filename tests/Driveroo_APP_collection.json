@@ -1,622 +1,12 @@
 {
 	"info": {
-		"_postman_id": "be656372-b2ae-47a2-968b-89fa2da34d30",
-		"name": "Driveroo_APP",
+		"_postman_id": "74ad8517-ec98-4a1d-8a08-fc1afd86c918",
+		"name": "Resolve",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "inspector_APP",
-			"item": [
-				{
-					"name": "/providerApi/inspect/self",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "2682957d-8859-451f-b2a0-0e4058c27e90",
-								"exec": [
-									"let responseJson = pm.response.json();",
-									" console.log(responseJson.request_id);",
-									"pm.globals.set(\"request_id_provider\", responseJson.request_id);",
-									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Your test name\", function () {",
-									"    pm.expect(responseJson.type).to.be.a(\"string\");",
-									"    pm.expect(responseJson.request_id).to.be.a(\"number\");",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token_id_Prov}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "car_model_id",
-									"value": "57930",
-									"type": "text"
-								},
-								{
-									"key": "make",
-									"value": "Dodge",
-									"type": "text"
-								},
-								{
-									"key": "service_type",
-									"value": "36",
-									"type": "text"
-								},
-								{
-									"key": "vin",
-									"value": "1C3CDFBA5DD344386",
-									"type": "text"
-								},
-								{
-									"key": "xlatitude",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "xlongitude",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "year",
-									"value": "2013",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://sandbox.driveroo.com/providerApi/inspect/self",
-							"protocol": "https",
-							"host": [
-								"sandbox",
-								"driveroo",
-								"com"
-							],
-							"path": [
-								"providerApi",
-								"inspect",
-								"self"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/providerApi/inspect",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "47a3b2aa-7b1a-467c-84a3-b55a9a3d59aa",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "3c171f1f-2efe-4240-88ee-5b1f76a2e28a",
-								"exec": [
-									"let responseJson = pm.response.json();",
-									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Your test name\", function () {",
-									"    pm.expect(responseJson.type).to.be.a(\"string\");",
-									"    pm.expect(responseJson.request_id).to.be.a(\"string\");",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token_id_Prov}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "aatg_mode",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "answers[default_1]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "car_model_id",
-									"value": "Other",
-									"type": "text"
-								},
-								{
-									"key": "hours",
-									"value": "0.0",
-									"type": "text"
-								},
-								{
-									"key": "mileage",
-									"value": "145582",
-									"type": "text"
-								},
-								{
-									"key": "previous_answers",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "request_id",
-									"value": "{{request_id_provider}}",
-									"type": "text"
-								},
-								{
-									"key": "transmission",
-									"value": "2",
-									"type": "text"
-								},
-								{
-									"key": "vin",
-									"value": "1HGCV3F49KA009255",
-									"type": "text"
-								},
-								{
-									"key": "xlatitude",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "xlongitude",
-									"value": "0",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://sandbox.driveroo.com/providerApi/inspect",
-							"protocol": "https",
-							"host": [
-								"sandbox",
-								"driveroo",
-								"com"
-							],
-							"path": [
-								"providerApi",
-								"inspect"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/providerApi/inspect/report",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "a4753a6a-d1e4-45db-ad36-58e2549fd2de",
-								"exec": [
-									"let responseJson = pm.response.json();",
-									"",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Your test name\", function () {",
-									"    pm.expect(responseJson.success).to.be.equal(true);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token_id_Prov}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "answers[0YpkMsir][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[0YpkMsir][value]",
-									"value": "No",
-									"type": "text"
-								},
-								{
-									"key": "answers[0dVA6Sp1][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[0dVA6Sp1][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[2ilasOnl][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[2ilasOnl][picture]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[2ilasOnl][value]",
-									"value": "110/22 R19.5",
-									"type": "text"
-								},
-								{
-									"key": "answers[66cSeaXt][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[66cSeaXt][picture]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[66cSeaXt][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[6m2VYrZs][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[6m2VYrZs][picture]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[6m2VYrZs][value]",
-									"value": "(884) 889-55-99",
-									"type": "text"
-								},
-								{
-									"key": "answers[7FGQTsN1][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[7FGQTsN1][value]",
-									"value": "4mm-7mm",
-									"type": "text"
-								},
-								{
-									"key": "answers[7V8kQ9Bn][comment]",
-									"value": "CBC",
-									"type": "text"
-								},
-								{
-									"key": "answers[7V8kQ9Bn][value]",
-									"value": "Interior is Clean",
-									"type": "text"
-								},
-								{
-									"key": "answers[E5bMQLr6][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[E5bMQLr6][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[KnAlFVzo][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[KnAlFVzo][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[M6GhgGoU][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[M6GhgGoU][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[MNAeKNtQ][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[MNAeKNtQ][picture]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[MNAeKNtQ][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[QUz2aJYF][comment]",
-									"value": "C CD.",
-									"type": "text"
-								},
-								{
-									"key": "answers[QUz2aJYF][picture]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[QUz2aJYF][value]",
-									"value": "n/r text answer",
-									"type": "text"
-								},
-								{
-									"key": "answers[Th5xy035][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[Th5xy035][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[TstGDQYY][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[TstGDQYY][value]",
-									"value": "231203",
-									"type": "text"
-								},
-								{
-									"key": "answers[VvmHho8E][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[VvmHho8E][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[W68HyCia][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[W68HyCia][value]",
-									"value": "Yes",
-									"type": "text"
-								},
-								{
-									"key": "answers[YSIbppAm][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[YSIbppAm][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[Yseb9jgW][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[Yseb9jgW][value]",
-									"value": "Checked and OK",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[nQn0MPhk][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[nQn0MPhk][value]",
-									"value": "Issue 1",
-									"type": "text"
-								},
-								{
-									"key": "answers[pqOqU2az][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[pqOqU2az][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[qFn0SLnb][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[qFn0SLnb][picture]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[qFn0SLnb][value]",
-									"value": "default value",
-									"type": "text"
-								},
-								{
-									"key": "answers[qZcOEL5t][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[qZcOEL5t][value]",
-									"value": "user option 2",
-									"type": "text"
-								},
-								{
-									"key": "answers[qhmCmO50][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[qhmCmO50][value]",
-									"value": "No issues observed",
-									"type": "text"
-								},
-								{
-									"key": "answers[tAsQwjrh][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[tAsQwjrh][value]",
-									"value": "Exterior is Clean",
-									"type": "text"
-								},
-								{
-									"key": "answers[wg1UmRlZ][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[wg1UmRlZ][value]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[wwIp6LVh][comment]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[wwIp6LVh][picture]",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "answers[wwIp6LVh][value]",
-									"value": "8888",
-									"type": "text"
-								},
-								{
-									"key": "is_issues",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "request_id",
-									"value": "{{request_id_provider}}",
-									"type": "text"
-								},
-								{
-									"key": "uuid",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "xlatitude",
-									"value": "0",
-									"type": "text"
-								},
-								{
-									"key": "xlongitude",
-									"value": "0",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://sandbox.driveroo.com/providerApi/inspect/report",
-							"protocol": "https",
-							"host": [
-								"sandbox",
-								"driveroo",
-								"com"
-							],
-							"path": [
-								"providerApi",
-								"inspect",
-								"report"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Resolve with assing on sumbody Copy",
+			"name": "Resolve with assing on sumbody",
 			"item": [
 				{
 					"name": "/userApi/fleets/cars - Create car",
@@ -624,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "98368548-5f43-4766-b98c-cadbc5a02455",
+								"id": "a9c89561-416b-49b4-95f1-cd85d06f3bb4",
 								"exec": [
 									"let responseJson = pm.response.json();",
 									"console.log(responseJson.data.id)",
@@ -646,7 +36,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "304afcf6-708b-4643-a8ba-e3482b580477",
+								"id": "34070012-0929-444f-8576-a0923856725e",
 								"exec": [
 									""
 								],
@@ -669,7 +59,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"mileage\": \"200001\",\n  \"hours\": 10.6,\n  \"purchase_at\": \"2020-01-01\",\n  \"nickname\": \"Car #2\",\n  \"license_plate\": \"SV27149\",\n  \"car_type_id\": 44,\n  \"car_status_id\": 1,\n  \"vin\": \"JTEHT05J022021218\",\n  \"chassis\": \"USD\",\n  \"engine\": \"engine\",\n  \"sn\": \"string\",\n  \"year\": 0,\n  \"make\": \"\",\n  \"model\": \"\",\n  \"trim\": \"R 6.8 AT (457 Hp) (SUV)\",\n  \"notes\": \"string\",\n  \"extra_notes\": \"string\"\n}",
+							"raw": "{\n    \"year\":\"\",\n    \"make\":\"\",\n    \"model\":\"\",\n    \"trim\":\"R 6.8 AT (457 Hp) (SUV)\",\n    \"id\":\"\",\n    \"car_status_id\":1,\n    \"pictureLoaded\":\"\",\n    \"car_type_id\":45,\n    \"vin\":\"JTEHT05J022021218\",\n    \"engine\":\"\",\n    \"chassis\":\"\",\n    \"notes\":\"\",\n    \"hours\":\"\",\n    \"seriaNubmer\":\"\",\n    \"purchase_at\":\"2020-01-01\",\n    \"nickname\":\"Car #2\",\n    \"group\":\"\",\n    \"mileage\":200001,\n    \"extra_notes\":\"\",\n    \"groups\":[240],\n    \"picture\":\"\",\n    \"license_plate\": \"SV27149\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -696,7 +86,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ff266ed3-f025-4101-8f30-25736161bf34",
+								"id": "2a459bc8-d389-4fee-acbf-156765ac95fe",
 								"exec": [
 									"let responseJson = pm.response.json();",
 									" console.log(responseJson.request_id);",
@@ -777,7 +167,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "160f872d-e3fd-4438-8e79-96a1c48bcb22",
+								"id": "c00ec4ab-d9a8-4b06-b15e-3d6cd6f90a04",
 								"exec": [
 									"let responseJson = pm.response.json();",
 									"",
@@ -822,7 +212,7 @@
 								},
 								{
 									"key": "car_model_id",
-									"value": "R 6.8 AT (457 Hp) (SUV)",
+									"value": "38955",
 									"type": "text"
 								},
 								{
@@ -832,7 +222,7 @@
 								},
 								{
 									"key": "hours",
-									"value": "20000.0",
+									"value": "20000.2",
 									"type": "text"
 								},
 								{
@@ -862,7 +252,7 @@
 								},
 								{
 									"key": "xlatitude",
-									"value": " 46.4539332",
+									"value": "46.4539332",
 									"type": "text"
 								},
 								{
@@ -892,7 +282,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0b8ff471-79a8-4637-b992-a84e28f47dea",
+								"id": "c7162d9a-7590-4af9-9245-19a0005ed681",
 								"exec": [
 									"let responseJson = pm.response.json();",
 									"",
@@ -926,42 +316,72 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "answers[KnAlFVzo][value]",
-									"value": "No issues found at this time",
+									"key": "answers[0YpkMsir][comment]",
+									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[YSIbppAm][value]",
-									"value": "Positive value",
+									"key": "answers[0YpkMsir][value]",
+									"value": "No",
 									"type": "text"
 								},
 								{
-									"key": "answers[Yseb9jgW][value]",
-									"value": "Issue 2",
+									"key": "answers[0dVA6Sp1][comment]",
+									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[QUz2aJYF][value]",
-									"value": "May the n/r t be with xt",
+									"key": "answers[0dVA6Sp1][value]",
+									"value": "No issues observed",
 									"type": "text"
 								},
 								{
-									"key": "answers[nQn0MPhk][comment]",
-									"value": "Text 3",
+									"key": "answers[2ilasOnl][comment]",
+									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[nQn0MPhk][value]",
-									"value": "Issue 2",
+									"key": "answers[2ilasOnl][picture]",
+									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[VvmHho8E][value]",
-									"value": "No issues found at this time",
+									"key": "answers[2ilasOnl][value]",
+									"value": "110/22 R19.5",
+									"type": "text"
+								},
+								{
+									"key": "answers[66cSeaXt][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[66cSeaXt][picture]",
+									"value": "",
 									"type": "text"
 								},
 								{
 									"key": "answers[66cSeaXt][value]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[6m2VYrZs][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[6m2VYrZs][picture]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[6m2VYrZs][value]",
+									"value": "(11_) ___-__-__",
+									"type": "text"
+								},
+								{
+									"key": "answers[7FGQTsN1][comment]",
 									"value": "",
 									"type": "text"
 								},
@@ -971,48 +391,8 @@
 									"type": "text"
 								},
 								{
-									"key": "answers[0dVA6Sp1][value]",
-									"value": "Issue 1,Issue 2",
-									"type": "text"
-								},
-								{
-									"key": "answers[wg1UmRlZ][value]",
-									"value": "No issues found at this time",
-									"type": "text"
-								},
-								{
-									"key": "answers[E5bMQLr6][value]",
-									"value": "8mm +",
-									"type": "text"
-								},
-								{
-									"key": "answers[TstGDQYY][value]",
-									"value": "231333",
-									"type": "text"
-								},
-								{
-									"key": "answers[wwIp6LVh][value]",
-									"value": "11",
-									"type": "text"
-								},
-								{
-									"key": "answers[W68HyCia][value]",
-									"value": "No",
-									"type": "text"
-								},
-								{
-									"key": "answers[pqOqU2az][value]",
-									"value": "No issues found at this time",
-									"type": "text"
-								},
-								{
-									"key": "answers[2ilasOnl][value]",
-									"value": "110/22 R19.5",
-									"type": "text"
-								},
-								{
-									"key": "answers[qFn0SLnb][value]",
-									"value": "default value",
+									"key": "answers[7V8kQ9Bn][comment]",
+									"value": "",
 									"type": "text"
 								},
 								{
@@ -1021,83 +401,223 @@
 									"type": "text"
 								},
 								{
-									"key": "answers[6m2VYrZs][value]",
-									"value": "(111) ***-**-**",
+									"key": "answers[E5bMQLr6][comment]",
+									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[tAsQwjrh][comment]",
-									"value": "Text 2",
+									"key": "answers[E5bMQLr6][value]",
+									"value": "8mm +",
 									"type": "text"
 								},
 								{
-									"key": "answers[tAsQwjrh][value]",
-									"value": "Exterior is not Clean",
+									"key": "answers[KnAlFVzo][comment]",
+									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[qhmCmO50][comment]",
-									"value": "Text 1",
-									"type": "text"
-								},
-								{
-									"key": "answers[qhmCmO50][value]",
-									"value": "Issue 2",
-									"type": "text"
-								},
-								{
-									"key": "answers[MNAeKNtQ][value]",
-									"value": "Inspected",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][pictures][0]",
-									"value": "231331",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][pictures][1]",
-									"value": "231332",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][attachment_urls][0]",
-									"value": "https://s3-us-west-2.amazonaws.com/driveroo.sandbox/231331/1605881052741.jpg",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][attachment_urls][1]",
-									"value": "https://s3-us-west-2.amazonaws.com/driveroo.sandbox/231332/1605881074269.jpg",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][value]",
-									"value": "Left front door handle is broken or missing",
-									"type": "text"
-								},
-								{
-									"key": "answers[Th5xy035][value]",
+									"key": "answers[KnAlFVzo][value]",
 									"value": "No issues found at this time",
 									"type": "text"
 								},
 								{
-									"key": "answers[0YpkMsir][pictures][0]",
-									"value": "231334",
+									"key": "answers[M6GhgGoU][comment]",
+									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[0YpkMsir][attachment_urls][0]",
-									"value": "https://s3-us-west-2.amazonaws.com/driveroo.sandbox/231334/1605881252365.jpg",
+									"key": "answers[M6GhgGoU][value]",
+									"value": "N/A",
 									"type": "text"
 								},
 								{
-									"key": "answers[0YpkMsir][value]",
+									"key": "answers[MNAeKNtQ][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[MNAeKNtQ][picture]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[MNAeKNtQ][value]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[QUz2aJYF][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[QUz2aJYF][picture]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[QUz2aJYF][value]",
+									"value": "n/r text answer",
+									"type": "text"
+								},
+								{
+									"key": "answers[Th5xy035][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[Th5xy035][value]",
+									"value": "Requires repair or replacement",
+									"type": "text"
+								},
+								{
+									"key": "answers[TstGDQYY][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[TstGDQYY][value]",
+									"value": "232324",
+									"type": "text"
+								},
+								{
+									"key": "answers[VvmHho8E][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[VvmHho8E][value]",
+									"value": "No issues found at this time",
+									"type": "text"
+								},
+								{
+									"key": "answers[W68HyCia][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[W68HyCia][value]",
+									"value": "No",
+									"type": "text"
+								},
+								{
+									"key": "answers[YSIbppAm][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[YSIbppAm][value]",
+									"value": "Positive value",
+									"type": "text"
+								},
+								{
+									"key": "answers[Yseb9jgW][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[Yseb9jgW][value]",
+									"value": "Checked and OK",
+									"type": "text"
+								},
+								{
+									"key": "answers[dXLgMXBs][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[dXLgMXBs][value]",
 									"value": "Yes",
 									"type": "text"
 								},
 								{
+									"key": "answers[nQn0MPhk][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[nQn0MPhk][value]",
+									"value": "Checked and OK",
+									"type": "text"
+								},
+								{
+									"key": "answers[pqOqU2az][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[pqOqU2az][value]",
+									"value": "Curb rash / scratches",
+									"type": "text"
+								},
+								{
+									"key": "answers[qFn0SLnb][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[qFn0SLnb][picture]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[qFn0SLnb][value]",
+									"value": "default value",
+									"type": "text"
+								},
+								{
+									"key": "answers[qZcOEL5t][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
 									"key": "answers[qZcOEL5t][value]",
-									"value": "user option 3",
+									"value": "user option 1",
+									"type": "text"
+								},
+								{
+									"key": "answers[qhmCmO50][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[qhmCmO50][value]",
+									"value": "No issues observed",
+									"type": "text"
+								},
+								{
+									"key": "answers[tAsQwjrh][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[tAsQwjrh][value]",
+									"value": "Exterior is Clean",
+									"type": "text"
+								},
+								{
+									"key": "answers[wg1UmRlZ][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[wg1UmRlZ][value]",
+									"value": "No issues found at this time",
+									"type": "text"
+								},
+								{
+									"key": "answers[wwIp6LVh][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[wwIp6LVh][picture]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[wwIp6LVh][value]",
+									"value": "11",
 									"type": "text"
 								},
 								{
@@ -1111,13 +631,8 @@
 									"type": "text"
 								},
 								{
-									"key": "xlatitude",
-									"value": "0.0",
-									"type": "text"
-								},
-								{
-									"key": "xlongitude",
-									"value": "0.0",
+									"key": "uuid",
+									"value": "",
 									"type": "text"
 								}
 							]
@@ -1142,17 +657,42 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b282fcab-6352-444b-8ee5-e5a972dd31fd",
+								"id": "be7d16c5-5229-4e7b-8cb7-a7639076bca4",
 								"exec": [
 									"let responseJson = pm.response.json().data;",
 									" console.log(responseJson)",
 									" console.log(responseJson[0].finding_id)",
 									" console.log(responseJson[1].finding_id)",
 									" console.log(responseJson[2].finding_id)",
+									" console.log(responseJson[3].finding_id)",
 									" pm.collectionVariables.set(\"issues_id[0]\", responseJson[0].finding_id);",
-									" pm.collectionVariables.set(\"issues_id[1]\", responseJson[1].finding_id);",
-									" pm.collectionVariables.set(\"issues_id[2]\", responseJson[2].finding_id);",
+									"//  pm.collectionVariables.set(\"issues_id[1]\", responseJson[1].finding_id);",
+									"//  pm.collectionVariables.set(\"issues_id[2]\", responseJson[3].finding_id);",
 									"",
+									"console.log(responseJson[4].question)",
+									"",
+									"for (let i = 0; i < responseJson.length; i++){",
+									"    if(responseJson[i].question==\"Front Driver Tire Condition\"){",
+									"        console.log(responseJson[i].question)",
+									"        console.log(\"issues_id[1] - \"+responseJson[i].finding_id)",
+									"        pm.collectionVariables.set(\"issues_id[1]\", responseJson[i].finding_id);",
+									"    }",
+									"    if(responseJson[i].question==\"Front Driver Tire Pressure Check\"){",
+									"        console.log(responseJson[i].question)",
+									"        console.log(\"issues_id[2] - \"+responseJson[i].finding_id)",
+									"        pm.collectionVariables.set(\"issues_id[2]\", responseJson[i].finding_id);",
+									"    }",
+									"    if(responseJson[i].question==\"Front Driver Tire Size\"){",
+									"        console.log(responseJson[i].question)",
+									"        console.log(\"issues_id[3] - \"+responseJson[i].finding_id)",
+									"        pm.collectionVariables.set(\"issues_id[3]\", responseJson[i].finding_id);",
+									"    }",
+									"    if(responseJson[i].question==\"Front Driver Brake Rotors\"){",
+									"        console.log(responseJson[i].question)",
+									"        console.log(\"issues_id[4] - \"+responseJson[i].finding_id)",
+									"        pm.collectionVariables.set(\"issues_id[4]\", responseJson[i].finding_id);",
+									"    }",
+									"}",
 									"",
 									"// let arr = [];",
 									"// for (let i = 0; i < responseJson.length; i++){",
@@ -1173,6 +713,17 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "31113296-958a-4527-8fef-f48dfc23b1d1",
+								"exec": [
+									"console.log(pm.globals.get(\"token_id\"));",
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
@@ -1189,12 +740,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://sandbox.driveroo.com/userApi/fleets/cars/{{car_id_resolve}}/issues",
-							"protocol": "https",
+							"raw": "{{sand}}/userApi/fleets/cars/{{car_id_resolve}}/issues",
 							"host": [
-								"sandbox",
-								"driveroo",
-								"com"
+								"{{sand}}"
 							],
 							"path": [
 								"userApi",
@@ -1213,7 +761,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "02596c9e-7dfc-4f18-9ead-2bd182d9c419",
+								"id": "ebbd7eed-7d38-4841-9856-aede4d5b6e87",
 								"exec": [
 									"let responseJson = pm.response.json();",
 									"pm.collectionVariables.set(\"work_order_id\", responseJson.data.work_order.uuid);",
@@ -1234,9 +782,13 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "4c97100a-52f1-44a3-88d1-737743a7f3b9",
+								"id": "e5e21ef7-ba85-4440-8c01-1e3f9b2caf7c",
 								"exec": [
-									""
+									"var moment = require('moment');",
+									"",
+									"// pm.globals.set(\"todeyDate\", moment().format(\"YYYY-MM-DD\"));",
+									"pm.globals.set(\"todeyDate\", moment().subtract(-2, 'day').format(\"YYYY-MM-DD\"));",
+									"console.log(pm.globals.get(\"todeyDate\"))"
 								],
 								"type": "text/javascript"
 							}
@@ -1263,7 +815,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"assign_name\":\"Freddie  Mercury\",\"assign_email\":\"sergeyk+003@driveroo.com\",\"assign_phone\":\"+19546338219\",\"overdue_to\":\"2020-11-27\",\"user_id\":2858}",
+							"raw": "{\"assign_name\":\"Freddie  Mercury\",\"assign_email\":\"sergeyk+003@driveroo.com\",\"assign_phone\":\"+19546338219\",\"overdue_to\":\"{{todeyDate}}\",\"user_id\":2858}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1271,7 +823,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{sand}}/userApi/fleets/findings/{{issues_id[2]}}/assign",
+							"raw": "{{sand}}/userApi/fleets/findings/{{issues_id[1]}}/assign",
 							"host": [
 								"{{sand}}"
 							],
@@ -1279,7 +831,7 @@
 								"userApi",
 								"fleets",
 								"findings",
-								"{{issues_id[2]}}",
+								"{{issues_id[1]}}",
 								"assign"
 							]
 						}
@@ -1292,7 +844,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c597873b-854f-47f3-b93a-9c6f17ccecba",
+								"id": "a49caa37-db75-4429-90ca-85ac4c550eb9",
 								"exec": [
 									"let responseJson = pm.response.json();",
 									"",
@@ -1301,13 +853,13 @@
 									"});",
 									"",
 									"pm.test(\"Check shema JSON responce\", function () {",
-									"    pm.expect(responseJson.data.finding_id).to.be.a('number');",
-									"    pm.expect(responseJson.data.question).to.be.a('string');",
+									"    pm.expect(responseJson.company.currency.currency).to.be.a('string');",
+									"    pm.expect(responseJson.company.name).to.be.a('string');",
 									"});",
 									"",
-									"pm.test(\"Check shema JSON responce\", function () {",
-									"    pm.expect(responseJson.data.work_order.findings[0].reporter.name).to.be.equal(\"Chuck Norris\");",
-									"    pm.expect(responseJson.data.work_order.assignee.name).to.be.equals(\"Freddie  Mercury\");",
+									"pm.test(\"Check content JSON responce\", function () {",
+									"    pm.expect(responseJson.success).to.be.equal(true);",
+									"    pm.expect(responseJson.company.name).to.be.equal(\"Driveroo_Test_Env\");",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1315,6 +867,16 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_id}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -1359,12 +921,471 @@
 					"response": []
 				},
 				{
+					"name": "/userApi/fleets/findings/{{issues_id[4]}} - aditional info about issues",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "379b101d-8f6d-4d7d-b394-3183bfccbb85",
+								"exec": [
+									"let responseJson = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check shema JSON responce\", function () {",
+									"    pm.expect(responseJson.data.finding_id).to.be.a('number');",
+									"    pm.expect(responseJson.data.question).to.be.a('string');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{sand}}/userApi/fleets/findings/{{issues_id[4]}}",
+							"host": [
+								"{{sand}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"findings",
+								"{{issues_id[4]}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{sand}}/userApi/fleets/login - change user2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2f96f299-ca09-4b97-931d-bceee41b0cf7",
+								"exec": [
+									"",
+									"var responseJson = pm.response.json();",
+									"",
+									"pm.globals.set(\"token_id\", responseJson.token);",
+									"// pm.collectionVariables.set(\"token_id\", responseJson.token);",
+									"// pm.environment.set(\"token_id\", responseJson.token);",
+									"// console.log(pm.globals.get(\"token_id\"));",
+									"",
+									"",
+									"/*",
+									"// получить глобальную переменную",
+									"console.log(pm.globals.get(\"token_id\"));",
+									"// получить переменную из окружения",
+									"console.log(pm.environment.get(\"token_id\"));",
+									"// получить переменную из любого пространства согласно приоритету",
+									"console.log(pm.variables.get(\"token_id\"));",
+									"*/",
+									"",
+									"",
+									"pm.test(\"Response time is less than 2400ms\", function () {",
+									"    console.log(\"Response time is \"+pm.response.responseTime);",
+									"    pm.expect(pm.response.responseTime).to.be.below(2400);",
+									"});",
+									"",
+									"pm.test(\"Create new user\", function () {",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"The response is JSON and type 'object'\", () => {",
+									"    pm.response.to.be.json;",
+									"    pm.expect(responseJson).to.be.an(\"object\");",
+									"});",
+									"",
+									"pm.test(\"The response has all properties\", () => {",
+									"    pm.expect(responseJson).to.have.any.keys('name');",
+									"    pm.expect(responseJson).to.have.property('name');",
+									"    pm.expect(responseJson.name).to.be.a('string');",
+									"    pm.expect(responseJson.email).to.have.lengthOf(24);",
+									"    pm.expect(responseJson.type).to.eql('fleet');",
+									"    pm.expect(responseJson.email).to.eql(\"sergeyk+003@driveroo.com\"); ",
+									"    pm.expect(responseJson.name).to.eql('Freddie  Mercury');",
+									"    pm.expect(responseJson.email).not.eq(undefined); //To Check if Value is Null",
+									"});",
+									"",
+									"pm.test(\"To check if Value eql in the response \", () => {",
+									"    pm.expect(responseJson.type).to.eql('fleet');",
+									"    pm.expect(responseJson.email).to.eql(\"sergeyk+003@driveroo.com\"); ",
+									"    pm.expect(responseJson.name).to.eql('Freddie  Mercury');",
+									"    pm.expect(responseJson.email).not.eq(undefined); //To Check if Value is Null",
+									"});",
+									"pm.test(\"Check the type of properties\", () => {",
+									"    pm.expect(responseJson.name).to.be.a('string');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"sergeyk+003@driveroo.com\",\n    \"password\": \"123456\",\n    \"device_token\": \"73e879b8-eac0-46df-aa32-16bddadcebff\",\n    \"device_type\": \"web\",\n    \"login_by\": \"manual\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{sand}}/userApi/fleets/login",
+							"host": [
+								"{{sand}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/userApi/fleets/findings/{{issues_id[4]}} - aditional info about issues",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7f7ff697-ec3f-4364-972a-8c79b7178625",
+								"exec": [
+									"let responseJson = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check shema JSON responce\", function () {",
+									"    pm.expect(responseJson.data.finding_id).to.be.a('number');",
+									"    pm.expect(responseJson.data.question).to.be.a('string');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{sand}}/userApi/fleets/findings/{{issues_id[4]}}",
+							"host": [
+								"{{sand}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"findings",
+								"{{issues_id[4]}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/userApi/fleets/findings/{{issues_id}}/assign - Assing WO Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "470f5a55-11a1-4ff2-9877-c209458b4f37",
+								"exec": [
+									"let responseJson = pm.response.json();",
+									"pm.collectionVariables.set(\"work_order_id\", responseJson.data.work_order.uuid);",
+									"console.log(pm.collectionVariables.get(\"work_order_id\"))",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check shema JSON responce\", function () {",
+									"    pm.expect(responseJson.data.finding_id).to.be.a('number');",
+									"    pm.expect(responseJson.data.question).to.be.a('string');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "58e6ffe2-eff0-483b-8262-7d4dfc3bca5f",
+								"exec": [
+									"var moment = require('moment');",
+									"",
+									"// pm.globals.set(\"todeyDate\", moment().format(\"YYYY-MM-DD\"));",
+									"pm.globals.set(\"todeyDate\", moment().subtract(-2, 'day').format(\"YYYY-MM-DD\"));",
+									"console.log(pm.globals.get(\"todeyDate\"))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "cookie",
+								"value": "laravel_session=jTFsLTE4eK05Jlpg9dZmwwcfHkZ4OdQvpC6JAPeT",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"assign_name\":\"Freddie  Mercury\",\"assign_email\":\"sergeyk+003@driveroo.com\",\"assign_phone\":\"+19546338219\",\"overdue_to\":\"{{todeyDate}}\",\"user_id\":2858}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{sand}}/userApi/fleets/findings/{{issues_id[4]}}/assign",
+							"host": [
+								"{{sand}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"findings",
+								"{{issues_id[4]}}",
+								"assign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/userApi/fleets/findings/{{work_order_id}}/resolve - WO resolve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3a5e02c8-624c-41a2-aceb-623cadc82551",
+								"exec": [
+									"let responseJson = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check shema JSON responce\", function () {",
+									"    pm.expect(responseJson.company.currency.currency).to.be.a('string');",
+									"    pm.expect(responseJson.company.name).to.be.a('string');",
+									"});",
+									"",
+									"pm.test(\"Check content JSON responce\", function () {",
+									"    pm.expect(responseJson.success).to.be.equal(true);",
+									"    pm.expect(responseJson.company.name).to.be.equal(\"Driveroo_Test_Env\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "notes",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "200002",
+									"type": "text"
+								},
+								{
+									"key": "cost_info",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{sand}}/userApi/fleets/findings/{{work_order_id}}/resolve",
+							"host": [
+								"{{sand}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"findings",
+								"{{work_order_id}}",
+								"resolve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{sand}}/userApi/fleets/login - change user1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c8247c08-cfd0-485e-a060-fc89c696712b",
+								"exec": [
+									"",
+									"var responseJson = pm.response.json();",
+									"",
+									"pm.globals.set(\"token_id\", responseJson.token);",
+									"// pm.collectionVariables.set(\"token_id\", responseJson.token);",
+									"// pm.environment.set(\"token_id\", responseJson.token);",
+									"// console.log(pm.globals.get(\"token_id\"));",
+									"",
+									"",
+									"/*",
+									"// получить глобальную переменную",
+									"console.log(pm.globals.get(\"token_id\"));",
+									"// получить переменную из окружения",
+									"console.log(pm.environment.get(\"token_id\"));",
+									"// получить переменную из любого пространства согласно приоритету",
+									"console.log(pm.variables.get(\"token_id\"));",
+									"*/",
+									"",
+									"",
+									"pm.test(\"Response time is less than 2400ms\", function () {",
+									"    console.log(\"Response time is \"+pm.response.responseTime);",
+									"    pm.expect(pm.response.responseTime).to.be.below(2400);",
+									"});",
+									"",
+									"pm.test(\"Create new user\", function () {",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"The response is JSON and type 'object'\", () => {",
+									"    pm.response.to.be.json;",
+									"    pm.expect(responseJson).to.be.an(\"object\");",
+									"});",
+									"",
+									"pm.test(\"The response has all properties\", () => {",
+									"    pm.expect(responseJson).to.have.any.keys('name');",
+									"    pm.expect(responseJson).to.have.property('name');",
+									"    pm.expect(responseJson.name).to.be.a('string');",
+									"    pm.expect(responseJson.email).to.have.lengthOf(24);",
+									"    pm.expect(responseJson.type).to.eql('fleet');",
+									"    pm.expect(responseJson.email).to.eql(\"sergeyk+000@driveroo.com\"); ",
+									"    pm.expect(responseJson.name).to.eql('Chuck Norris');",
+									"    pm.expect(responseJson.email).not.eq(undefined); //To Check if Value is Null",
+									"});",
+									"",
+									"pm.test(\"To check if Value eql in the response \", () => {",
+									"    pm.expect(responseJson.type).to.eql('fleet');",
+									"    pm.expect(responseJson.email).to.eql(\"sergeyk+000@driveroo.com\"); ",
+									"    pm.expect(responseJson.name).to.eql('Chuck Norris');",
+									"    pm.expect(responseJson.email).not.eq(undefined); //To Check if Value is Null",
+									"});",
+									"pm.test(\"Check the type of properties\", () => {",
+									"    pm.expect(responseJson.name).to.be.a('string');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"sergeyk+000@driveroo.com\",\n    \"password\": \"123456\",\n    \"device_token\": \"73e879b8-eac0-46df-aa32-16bddadcebff\",\n    \"device_type\": \"web\",\n    \"login_by\": \"manual\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{sand}}/userApi/fleets/login",
+							"host": [
+								"{{sand}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "/userApi/fleets/findings/{{issues_id[0]}}/resolve - Resolve without assing",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "2d7dadb4-795f-4e31-ba9a-e78aee2f27ed",
+								"id": "adb5e488-b242-4b8c-8ad6-3c9a2747a970",
 								"exec": [
 									"let responseJson = pm.response.json();",
 									"",
@@ -1430,7 +1451,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{sand}}/userApi/fleets/findings/{{issues_id[1]}}/resolve",
+							"raw": "{{sand}}/userApi/fleets/findings/{{issues_id[0]}}/resolve",
 							"host": [
 								"{{sand}}"
 							],
@@ -1438,7 +1459,7 @@
 								"userApi",
 								"fleets",
 								"findings",
-								"{{issues_id[1]}}",
+								"{{issues_id[0]}}",
 								"resolve"
 							]
 						}
@@ -1451,7 +1472,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3e731036-f889-48db-8acf-24660fa37f80",
+								"id": "f209cc3b-51e2-41e3-a9e9-661ed27ce5d2",
 								"exec": [
 									"let responseJson = pm.response.json();",
 									"",
@@ -1499,15 +1520,221 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "fleet_APP",
+			"name": "Prod - Resolve",
 			"item": [
 				{
-					"name": "/userApi/inspect",
+					"name": "/userApi/fleets/login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1a771e77-2380-4a21-ba3c-423eff2caeb0",
+								"exec": [
+									"//console.log(pm.variables.get(\"token_id_prod\")+\"  -- 1+1\");",
+									"",
+									"// получить глобальную переменную",
+									" pm.globals.get(\"token_id_prod\");",
+									"//console.log(\"получить глобальную переменную\");",
+									"//console.log(pm.globals.get(\"token_id_prod\"));",
+									"",
+									"// получить переменную из окружения",
+									" pm.environment.get(\"token_id_prod\");",
+									"//console.log (\"получить переменную из окружения\");",
+									"//console.log(pm.environment.get(\"token_id_prod\"));",
+									"",
+									"// получить переменную из любого пространства согласно приоритету",
+									" pm.variables.get(\"token_id_prod\");",
+									"// console.log(\"из любого пространства согласно приоритету\")",
+									"// console.log(pm.variables.get(\"token_id_prod\"));",
+									"",
+									"console.log(pm.globals.get(\"token_id_prod\"));",
+									"",
+									"",
+									"/* ****** ",
+									"",
+									"// получить переменную из любого пространства согласно приоритету",
+									"console.log(pm.variables.get(\"token_id_prod\"));",
+									"// получить переменную из окружения",
+									"console.log(pm.environment.get(\"token_id_prod\"));",
+									"// получить глобальную переменную",
+									"console.log(pm.globals.get(\"token_id_prod\"));",
+									"*/"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "55bf516b-7641-43d9-bc49-852a0e1220b9",
+								"exec": [
+									"",
+									"var responseJson = pm.response.json();",
+									"",
+									"pm.globals.set(\"token_id_prod\", responseJson.token);",
+									"pm.collectionVariables.set(\"token_id_prod\", responseJson.token);",
+									"pm.environment.set(\"token_id_prod\", responseJson.token);",
+									"console.log(pm.globals.get(\"token_id_prod\"));",
+									"",
+									"",
+									"/*",
+									"// получить глобальную переменную",
+									"console.log(pm.globals.get(\"token_id_prod\"));",
+									"// получить переменную из окружения",
+									"console.log(pm.environment.get(\"token_id_prod\"));",
+									"// получить переменную из любого пространства согласно приоритету",
+									"console.log(pm.variables.get(\"token_id_prod\"));",
+									"*/",
+									"",
+									"",
+									"pm.test(\"Response time is less than 2400ms\", function () {",
+									"    console.log(\"Response time is \"+pm.response.responseTime);",
+									"    pm.expect(pm.response.responseTime).to.be.below(2400);",
+									"});",
+									"",
+									"pm.test(\"Create new user\", function () {",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"The response is JSON and type 'object'\", () => {",
+									"    pm.response.to.be.json;",
+									"    pm.expect(responseJson).to.be.an(\"object\");",
+									"});",
+									"",
+									"pm.test(\"The response has all properties\", () => {",
+									"    pm.expect(responseJson).to.have.any.keys('name');",
+									"    pm.expect(responseJson).to.have.property('name');",
+									"    pm.expect(responseJson.name).to.be.a('string');",
+									"    pm.expect(responseJson.email).to.have.lengthOf(24);",
+									"    pm.expect(responseJson.type).to.eql('fleet');",
+									"    pm.expect(responseJson.email).to.eql(\"zhukova.nadiia@gmail.com\"); ",
+									"    pm.expect(responseJson.name).to.eql('Nadezhda Moha');",
+									"    pm.expect(responseJson.email).not.eq(undefined); //To Check if Value is Null",
+									"});",
+									"",
+									"pm.test(\"To check if Value eql in the response \", () => {",
+									"    pm.expect(responseJson.type).to.eql('fleet');",
+									"    pm.expect(responseJson.email).to.eql(\"zhukova.nadiia@gmail.com\"); ",
+									"    pm.expect(responseJson.name).to.eql('Nadezhda Moha');",
+									"    pm.expect(responseJson.email).not.eq(undefined); //To Check if Value is Null",
+									"});",
+									"pm.test(\"Check the type of properties\", () => {",
+									"    pm.expect(responseJson.name).to.be.a('string');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"zhukova.nadiia@gmail.com\",\n    \"password\": \"123456\",\n    \"device_token\": \"73e879b8-eac0-46df-aa32-16bddadcebff\",\n    \"device_type\": \"web\",\n    \"login_by\": \"manual\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prod}}/userApi/fleets/login",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/userApi/fleets/cars - Create car",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "8ed560f8-2906-4e21-8e3b-a4b3dd4ef043",
+								"id": "247c90ec-5aa9-4189-b5fe-d34d22c20a20",
+								"exec": [
+									"let responseJson = pm.response.json();",
+									"console.log(responseJson.data.id)",
+									"pm.collectionVariables.set(\"car_id_resolve\", responseJson.data.id);",
+									"",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check shema JSON responce\", function () {",
+									"    pm.expect(responseJson.data.id).to.be.a(\"number\");",
+									"    pm.expect(responseJson.data.car_model_id).to.be.a(\"string\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ef3254d-01ee-4b86-beb0-1f53b755c07f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_id_prod}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"mileage\": \"200001\",\n  \"hours\": \"\",\n  \"purchase_at\": \"2020-01-01\",\n  \"nickname\": \"Car #2\",\n  \"license_plate\": \"SV27149\",\n  \"car_type_id\": 40,\n  \"car_status_id\": 1,\n  \"vin\": \"JTEHT05J022021218\",\n  \"chassis\": \"\",\n  \"engine\": \"\",\n  \"sn\": \"\",\n  \"year\": 0,\n  \"make\": \"\",\n  \"model\": \"\",\n  \"trim\": \"R 6.8 AT (457 Hp) (SUV)\",\n  \"notes\": \"string\",\n  \"extra_notes\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prod}}/userApi/fleets/cars",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/userApi/inspect  - Schedule an inspection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fc755623-c55a-45de-9240-d8c688aede99",
 								"exec": [
 									"let responseJson = pm.response.json();",
 									" console.log(responseJson.request_id);",
@@ -1517,7 +1744,7 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"Your test name\", function () {",
+									"pm.test(\"Check shema JSON responce\", function () {",
 									"    pm.expect(responseJson.type).to.be.a(\"string\");",
 									"    pm.expect(responseJson.request_id).to.be.a(\"number\");",
 									"});"
@@ -1532,7 +1759,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{token_id}}",
+									"value": "{{token_id_prod}}",
 									"type": "string"
 								}
 							]
@@ -1542,6 +1769,11 @@
 						"body": {
 							"mode": "formdata",
 							"formdata": [
+								{
+									"key": "car",
+									"value": "{{car_id_resolve}}",
+									"type": "text"
+								},
 								{
 									"key": "latitude",
 									"value": "46.4539332",
@@ -1553,24 +1785,22 @@
 									"type": "text"
 								},
 								{
-									"key": "car",
-									"value": "14966",
+									"key": "service_type",
+									"value": "124",
 									"type": "text"
 								},
 								{
-									"key": "service_type",
-									"value": "108",
-									"type": "text"
+									"key": "to_garage",
+									"value": "1",
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
 						"url": {
-							"raw": "https://sandbox.driveroo.com/userApi/inspect",
-							"protocol": "https",
+							"raw": "{{prod}}/userApi/inspect",
 							"host": [
-								"sandbox",
-								"driveroo",
-								"com"
+								"{{prod}}"
 							],
 							"path": [
 								"userApi",
@@ -1581,12 +1811,12 @@
 					"response": []
 				},
 				{
-					"name": "/userApi/inspect/start",
+					"name": "/userApi/inspect/start - Start inspection",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "2c4e2ae6-38bf-4be7-84e7-328caeaa2a3a",
+								"id": "3e52d2e1-bdf4-47da-95cb-37aef47266b3",
 								"exec": [
 									"let responseJson = pm.response.json();",
 									"",
@@ -1594,7 +1824,7 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"Your test name\", function () {",
+									"pm.test(\"Check shema JSON responce\", function () {",
 									"    pm.expect(responseJson.type).to.be.a(\"string\");",
 									"    pm.expect(responseJson.request_id).to.be.a(\"string\");",
 									"});"
@@ -1609,7 +1839,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{token_id}}",
+									"value": "{{token_id_prod}}",
 									"type": "string"
 								}
 							]
@@ -1620,8 +1850,8 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "answers[default_1]",
-									"value": "testplat",
+									"key": "answers[default_5]",
+									"value": "SV27149",
 									"type": "text"
 								},
 								{
@@ -1630,13 +1860,8 @@
 									"type": "text"
 								},
 								{
-									"key": "car_model_id",
-									"value": "Other",
-									"type": "text"
-								},
-								{
 									"key": "hours",
-									"value": "0.0",
+									"value": "0",
 									"type": "text"
 								},
 								{
@@ -1646,7 +1871,7 @@
 								},
 								{
 									"key": "mileage",
-									"value": "4177",
+									"value": "200002",
 									"type": "text"
 								},
 								{
@@ -1661,7 +1886,7 @@
 								},
 								{
 									"key": "vin",
-									"value": "1FTYE1CM0HKA39809",
+									"value": "JTEHT05J022021218",
 									"type": "text"
 								},
 								{
@@ -1682,12 +1907,9 @@
 							]
 						},
 						"url": {
-							"raw": "https://sandbox.driveroo.com/userApi/inspect/start",
-							"protocol": "https",
+							"raw": "{{prod}}/userApi/inspect/start",
 							"host": [
-								"sandbox",
-								"driveroo",
-								"com"
+								"{{prod}}"
 							],
 							"path": [
 								"userApi",
@@ -1699,12 +1921,12 @@
 					"response": []
 				},
 				{
-					"name": "/userApi/inspect/issues",
+					"name": "/userApi/inspect/issues - Finish inspection",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "94548b40-29a0-4f50-bf51-94f50b51a2bc",
+								"id": "8929c62a-49cc-42fb-9ba6-c4d15ceee771",
 								"exec": [
 									"let responseJson = pm.response.json();",
 									"",
@@ -1712,7 +1934,7 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test(\"Your test name\", function () {",
+									"pm.test(\"Check shema JSON responce\", function () {",
 									"    pm.expect(responseJson.success).to.be.equal(true);",
 									"    pm.expect(responseJson.request_id).to.be.a('string');",
 									"});"
@@ -1727,7 +1949,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{token_id}}",
+									"value": "{{token_id_prod}}",
 									"type": "string"
 								}
 							]
@@ -1738,178 +1960,223 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "answers[KnAlFVzo][value]",
-									"value": "No issues found at this time",
-									"type": "text"
-								},
-								{
-									"key": "answers[YSIbppAm][value]",
-									"value": "Positive value",
-									"type": "text"
-								},
-								{
-									"key": "answers[Yseb9jgW][value]",
-									"value": "Issue 2",
-									"type": "text"
-								},
-								{
-									"key": "answers[QUz2aJYF][value]",
-									"value": "May the n/r t be with xt",
-									"type": "text"
-								},
-								{
-									"key": "answers[nQn0MPhk][comment]",
-									"value": "Test 2020",
-									"type": "text"
-								},
-								{
-									"key": "answers[nQn0MPhk][value]",
-									"value": "Issue 2",
-									"type": "text"
-								},
-								{
-									"key": "answers[VvmHho8E][value]",
-									"value": "No issues found at this time",
-									"type": "text"
-								},
-								{
-									"key": "answers[66cSeaXt][value]",
+									"key": "answers[M0lFZgsT][comment]",
 									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[7FGQTsN1][value]",
-									"value": "0mm-3mm",
+									"key": "answers[M0lFZgsT][value]",
+									"value": "user option 1",
 									"type": "text"
 								},
 								{
-									"key": "answers[0dVA6Sp1][value]",
-									"value": "Issue 1,Issue 2",
+									"key": "answers[267myS9n][comment]",
+									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[wg1UmRlZ][value]",
+									"key": "answers[267myS9n][value]",
 									"value": "No issues found at this time",
 									"type": "text"
 								},
 								{
-									"key": "answers[E5bMQLr6][value]",
-									"value": "8mm +",
+									"key": "answers[pf1xwDM5][value]",
+									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[TstGDQYY][value]",
-									"value": "231333",
+									"key": "answers[1FIiHsfd][comment]",
+									"value": "Text1",
 									"type": "text"
 								},
 								{
-									"key": "answers[wwIp6LVh][value]",
-									"value": "11",
-									"type": "text"
-								},
-								{
-									"key": "answers[W68HyCia][value]",
-									"value": "No",
-									"type": "text"
-								},
-								{
-									"key": "answers[pqOqU2az][value]",
-									"value": "No issues found at this time",
-									"type": "text"
-								},
-								{
-									"key": "answers[2ilasOnl][value]",
-									"value": "110/22 R19.5",
-									"type": "text"
-								},
-								{
-									"key": "answers[qFn0SLnb][value]",
-									"value": "default value",
-									"type": "text"
-								},
-								{
-									"key": "answers[7V8kQ9Bn][value]",
-									"value": "Interior is not Clean",
-									"type": "text"
-								},
-								{
-									"key": "answers[6m2VYrZs][value]",
-									"value": "(111) ***-**-**",
-									"type": "text"
-								},
-								{
-									"key": "answers[tAsQwjrh][comment]",
-									"value": "Test 2020",
-									"type": "text"
-								},
-								{
-									"key": "answers[tAsQwjrh][value]",
+									"key": "answers[1FIiHsfd][value]",
 									"value": "Exterior is not Clean",
 									"type": "text"
 								},
 								{
-									"key": "answers[qhmCmO50][comment]",
-									"value": "Test 2020",
+									"key": "answers[8YzYNTL8][comment]",
+									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[qhmCmO50][value]",
-									"value": "Issue 2",
-									"type": "text"
-								},
-								{
-									"key": "answers[MNAeKNtQ][value]",
-									"value": "Inspected",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][pictures][0]",
-									"value": "231331",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][pictures][1]",
-									"value": "231332",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][attachment_urls][0]",
-									"value": "https://s3-us-west-2.amazonaws.com/driveroo.sandbox/231331/1605881052741.jpg",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][attachment_urls][1]",
-									"value": "https://s3-us-west-2.amazonaws.com/driveroo.sandbox/231332/1605881074269.jpg",
-									"type": "text"
-								},
-								{
-									"key": "answers[dXLgMXBs][value]",
-									"value": "Left front door handle is broken or missing",
-									"type": "text"
-								},
-								{
-									"key": "answers[Th5xy035][value]",
+									"key": "answers[8YzYNTL8][value]",
 									"value": "No issues found at this time",
 									"type": "text"
 								},
 								{
-									"key": "answers[0YpkMsir][pictures][0]",
-									"value": "231334",
+									"key": "answers[ZZM93Xs2][comment]",
+									"value": "",
 									"type": "text"
 								},
 								{
-									"key": "answers[0YpkMsir][attachment_urls][0]",
-									"value": "https://s3-us-west-2.amazonaws.com/driveroo.sandbox/231334/1605881252365.jpg",
+									"key": "answers[ZZM93Xs2][value]",
+									"value": "No issues found at this time",
 									"type": "text"
 								},
 								{
-									"key": "answers[0YpkMsir][value]",
+									"key": "answers[UPEd3UMH][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[UPEd3UMH][value]",
 									"value": "Yes",
 									"type": "text"
 								},
 								{
-									"key": "answers[qZcOEL5t][value]",
-									"value": "user option 3",
+									"key": "answers[1HkCuOZq][value]",
+									"value": "0mm-3mm",
+									"type": "text"
+								},
+								{
+									"key": "answers[KHy9yhAq][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[KHy9yhAq][value]",
+									"value": "8mm +",
+									"type": "text"
+								},
+								{
+									"key": "answers[eyFBn3GS][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[eyFBn3GS][value]",
+									"value": "Inspected",
+									"type": "text"
+								},
+								{
+									"key": "answers[TstGDQYY][value]",
+									"value": "336447",
+									"type": "text"
+								},
+								{
+									"key": "answers[6m2VYrZs][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[6m2VYrZs][value]",
+									"value": "(11*) ***-**-**",
+									"type": "text"
+								},
+								{
+									"key": "answers[qhmCmO50][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[qhmCmO50][value]",
+									"value": "No issues observed",
+									"type": "text"
+								},
+								{
+									"key": "answers[UCwjNdow][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[UCwjNdow][value]",
+									"value": "Positive value",
+									"type": "text"
+								},
+								{
+									"key": "answers[Yseb9jgW][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[Yseb9jgW][value]",
+									"value": "Checked and OK",
+									"type": "text"
+								},
+								{
+									"key": "answers[QUz2aJYF][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[QUz2aJYF][value]",
+									"value": "May the n/r t be with xt*",
+									"type": "text"
+								},
+								{
+									"key": "answers[LhlyrXAa][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[LhlyrXAa][value]",
+									"value": "110/22 R19.5",
+									"type": "text"
+								},
+								{
+									"key": "answers[nQn0MPhk][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[nQn0MPhk][value]",
+									"value": "Checked and OK",
+									"type": "text"
+								},
+								{
+									"key": "answers[PPnRfUXx][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[PPnRfUXx][value]",
+									"value": "default value",
+									"type": "text"
+								},
+								{
+									"key": "answers[LzCKLmQK][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[LzCKLmQK][value]",
+									"value": "N/A",
+									"type": "text"
+								},
+								{
+									"key": "answers[fgiIqsT9][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[fgiIqsT9][value]",
+									"value": "No",
+									"type": "text"
+								},
+								{
+									"key": "answers[wthfZb04][value]",
+									"value": "No issues found at this time",
+									"type": "text"
+								},
+								{
+									"key": "answers[pbZ4Pwfo][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[pbZ4Pwfo][value]",
+									"value": "No issues found at this time",
+									"type": "text"
+								},
+								{
+									"key": "answers[73AxQHqd][comment]",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answers[73AxQHqd][value]",
+									"value": "Interior is Clean",
 									"type": "text"
 								},
 								{
@@ -1935,17 +2202,392 @@
 							]
 						},
 						"url": {
-							"raw": "https://sandbox.driveroo.com/userApi/inspect/issues",
-							"protocol": "https",
+							"raw": "{{prod}}/userApi/inspect/issues",
 							"host": [
-								"sandbox",
-								"driveroo",
-								"com"
+								"{{prod}}"
 							],
 							"path": [
 								"userApi",
 								"inspect",
 								"issues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/userApi/fleets/cars/{{car_id_resolve}}/issues - Select list of issues",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "21d8575b-73f5-44d9-aea6-a0d007558e16",
+								"exec": [
+									"let responseJson = pm.response.json().data;",
+									" console.log(responseJson)",
+									" console.log(responseJson[0].finding_id)",
+									" console.log(responseJson[1].finding_id)",
+									" console.log(responseJson[2].finding_id)",
+									" console.log(responseJson[3].finding_id)",
+									" pm.collectionVariables.set(\"issues_id[0]\", responseJson[0].finding_id);",
+									" pm.collectionVariables.set(\"issues_id[1]\", responseJson[1].finding_id);",
+									" pm.collectionVariables.set(\"issues_id[2]\", responseJson[3].finding_id);",
+									"",
+									"console.log(responseJson[3].question)",
+									"",
+									"for (let i = 0; i < responseJson.length; i++){",
+									"    if(responseJson[i].question==\"Front Driver Tire Condition\"){",
+									"        console.log(responseJson[i].finding_id)",
+									"        pm.collectionVariables.set(\"issues_id[2]\", responseJson[i].finding_id);",
+									"    }",
+									"}",
+									"",
+									"// let arr = [];",
+									"// for (let i = 0; i < responseJson.length; i++){",
+									"//     arr[i]=(responseJson[i].finding_id);",
+									"// }",
+									"// console.log(arr)",
+									"//  pm.collectionVariables.set(\"issues_id\", arr);",
+									"// console.log(pm.collectionVariables.get(\"issues_id\")[5]);",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check shema JSON responce\", function () {",
+									"    pm.expect(responseJson[0].finding_id).to.be.a('number');",
+									"    pm.expect(responseJson[0].question).to.be.a('string');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_id_prod}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{prod}}/userApi/fleets/cars/{{car_id_resolve}}/issues",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"cars",
+								"{{car_id_resolve}}",
+								"issues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/userApi/fleets/findings/{{issues_id}}/assign - Assing WO",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5d404584-2c3f-4886-a264-66a14f1a9eb2",
+								"exec": [
+									"let responseJson = pm.response.json();",
+									"pm.collectionVariables.set(\"work_order_id\", responseJson.data.work_order.uuid);",
+									"console.log(pm.collectionVariables.get(\"work_order_id\"))",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check shema JSON responce\", function () {",
+									"    pm.expect(responseJson.data.finding_id).to.be.a('number');",
+									"    pm.expect(responseJson.data.question).to.be.a('string');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d9a54843-da6d-4f59-b310-a07908317bbc",
+								"exec": [
+									"var moment = require('moment');",
+									"// pm.globals.set(\"todeyDate\", moment().format(\"YYYY-MM-DD\"));",
+									"pm.globals.set(\"todeyDate\", moment().subtract(-1, 'day').format(\"YYYY-MM-DD\"));",
+									"// console.log(pm.globals.get(\"todeyDate\"))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_id_prod}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "cookie",
+								"value": "laravel_session=jTFsLTE4eK05Jlpg9dZmwwcfHkZ4OdQvpC6JAPeT",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"assign_name\":\"Nadezhda111 LName222\",\"assign_email\":\"nadezhda+12@driveroo.com\",\"assign_phone\":\"+15625122939\",\"overdue_to\":\"{{todeyDate}}\",\"user_id\":3173,\"assigned_user_id\":\"\",\"isExitUser\":\"company\",\"approve_amount\":\"\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prod}}/userApi/fleets/findings/{{issues_id[2]}}/assign",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"findings",
+								"{{issues_id[2]}}",
+								"assign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/userApi/fleets/findings/{{work_order_id}}/resolve - WO resolve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bbe70584-4c31-4871-8b86-500b13623f05",
+								"exec": [
+									"let responseJson = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check shema JSON responce\", function () {",
+									"    pm.expect(responseJson.company.currency.currency).to.be.a('string');",
+									"    pm.expect(responseJson.company.name).to.be.a('string');",
+									"});",
+									"",
+									"pm.test(\"Check content JSON responce\", function () {",
+									"    pm.expect(responseJson.success).to.be.equal(true);",
+									"    // pm.expect(responseJson.company.name).to.be.equal(\"Driveroo_Test_Env\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_id_prod}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "notes",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "200002",
+									"type": "text"
+								},
+								{
+									"key": "cost_info",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{prod}}/userApi/fleets/findings/{{work_order_id}}/resolve",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"findings",
+								"{{work_order_id}}",
+								"resolve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/userApi/fleets/findings/{{issues_id[0]}}/resolve - Resolve without assing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5e72d933-a5d6-42a2-939e-69231f6a3eba",
+								"exec": [
+									"let responseJson = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check shema JSON responce\", function () {",
+									"    pm.expect(responseJson.data.finding_id).to.be.a('number');",
+									"    pm.expect(responseJson.data.question).to.be.a('string');",
+									"});",
+									"",
+									"pm.test(\"Check shema JSON responce\", function () {",
+									"    pm.expect(responseJson.data.reporter.name).to.be.equal(\"Chuck Norris\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_id_prod}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "notes",
+									"value": " ",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": " 200002",
+									"type": "text"
+								},
+								{
+									"key": "cost_info",
+									"value": " ",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": " ",
+									"type": "text"
+								},
+								{
+									"key": "resolve_date",
+									"value": " 11/26/2020 1:51 AM",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{prod}}/userApi/fleets/findings/{{issues_id[1]}}/resolve",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"findings",
+								"{{issues_id[1]}}",
+								"resolve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/userApi/cars/16489/remove -Delete car",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "42a514a3-4fa1-41e4-a2e9-560f42a746c8",
+								"exec": [
+									"let responseJson = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check responce\", function () {",
+									"    pm.expect(responseJson.success).to.be.equal(true);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_id_prod}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{prod}}/userApi/cars/{{car_id_resolve}}/remove",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"userApi",
+								"cars",
+								"{{car_id_resolve}}",
+								"remove"
 							]
 						}
 					},
@@ -1959,7 +2601,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0d02df37-60b9-49cf-96c9-324019abd0c3",
+				"id": "c5962703-54dd-4ece-a1bc-fea13a8b8e27",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1969,7 +2611,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d9376e47-ca2b-40cd-9ca6-4bcf1f910802",
+				"id": "86b7c151-9d5b-47e4-9f4f-aad976151824",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1979,54 +2621,64 @@
 	],
 	"variable": [
 		{
-			"id": "10e4881e-3918-4052-a77e-d5820c615f28",
-			"key": "token_id_Prov",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGFzcyI6InByb3ZpZGVyIiwic3ViIjo1NywiaXNzIjoiaHR0cHM6Ly9zYW5kYm94LmRyaXZlcm9vLmNvbS9wcm92aWRlci9wcm9maWxlIiwiaWF0IjoxNjA0NDMzMDI2LCJleHAiOjI1NTA1MTMwMjYsIm5iZiI6MTYwNDQzMzAyNiwianRpIjoiOE5VbHRCMzA3Tk5ZTWJCSiJ9.y58Axr9qP47kHpIeXNl3WgTwiAKNJAo0hgt29RB3V50"
-		},
-		{
-			"id": "01536842-4e2f-48df-a31c-851e7b03cce3",
-			"key": "token_id",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGFzcyI6InVzZXIiLCJzdWIiOjI4NTMsImlzcyI6Imh0dHBzOi8vc2FuZGJveC5kcml2ZXJvby5jb20vdXNlckFwaS9mbGVldHMvbG9naW4iLCJpYXQiOjE2MDUxOTYyMTAsImV4cCI6MjU1MTI3NjIxMCwibmJmIjoxNjA1MTk2MjEwLCJqdGkiOiJlYTA4d2poWlQyU3U4cWhJIn0.u3_KfegPYo3pY-gYpAcoY1QBzI6onOw47DL2Tx_aM3c"
-		},
-		{
-			"id": "6a52c5ec-bf1d-44e8-911d-009a47f8a26e",
-			"key": "car_id_resolve",
-			"value": ""
-		},
-		{
-			"id": "db432e54-826c-4555-a9fd-24d964a48ce8",
-			"key": "request_id_fleet",
-			"value": ""
-		},
-		{
-			"id": "5a9baf92-3aaa-4706-bc65-2f96b09c4a10",
-			"key": "issues_id[0]",
-			"value": ""
-		},
-		{
-			"id": "37ce6ecf-33bc-49df-a448-a505a0cfc562",
-			"key": "issues_id[1]",
-			"value": ""
-		},
-		{
-			"id": "344743ac-51ec-4d3d-b0be-b7814b22923e",
-			"key": "issues_id[2]",
-			"value": ""
-		},
-		{
-			"id": "d74742d8-afcd-45c0-8fd1-f001f2f4e4e6",
-			"key": "work_order_id",
-			"value": ""
-		},
-		{
-			"id": "82131015-e75a-4d67-9abb-94fba4db72c7",
+			"id": "4b89e11a-af4d-436a-ab85-85b61cc03790",
 			"key": "sand",
 			"value": "https://sandbox.driveroo.com"
 		},
 		{
-			"id": "c887a1b7-9a5b-4976-bcf2-d418c4773de9",
+			"id": "ea4791d7-9c4c-40c2-87f9-982693fdf3b7",
 			"key": "prod",
-			"value": "https://www.driveroo.com"
+			"value": "https://lp.driveroo.com/driveroo"
+		},
+		{
+			"id": "a991322a-de66-4dce-b966-1bc74e27a987",
+			"key": "car_id_resolve",
+			"value": ""
+		},
+		{
+			"id": "b2827dd0-60f7-456f-af1a-5b8d4d85788f",
+			"key": "request_id_fleet",
+			"value": ""
+		},
+		{
+			"id": "d4142269-a713-4e1b-a6e6-d08839fdd01e",
+			"key": "issues_id",
+			"value": ""
+		},
+		{
+			"id": "75f67e2a-b733-4079-9ba6-99e2af9f25e7",
+			"key": "work_order_id",
+			"value": ""
+		},
+		{
+			"id": "112f884a-2ff2-48c8-b69f-98e4608c9fcd",
+			"key": "issues_id[0]",
+			"value": ""
+		},
+		{
+			"id": "85f753db-9671-4ba8-9b09-a4c6e75d65a7",
+			"key": "issues_id[1]",
+			"value": ""
+		},
+		{
+			"id": "75eea77e-a971-4a26-8a15-9ff52aeeefe0",
+			"key": "issues_id[2]",
+			"value": ""
+		},
+		{
+			"id": "ab4a23d8-d9b6-4835-bcd3-ae028d5994de",
+			"key": "token_id_prod",
+			"value": ""
+		},
+		{
+			"id": "9489a186-19cc-4775-a108-b266e2a7b813",
+			"key": "issues_id[3]",
+			"value": ""
+		},
+		{
+			"id": "91b688a1-c573-4e41-8cf7-a326313feb69",
+			"key": "issues_id[4]",
+			"value": ""
 		}
 	],
 	"protocolProfileBehavior": {}
