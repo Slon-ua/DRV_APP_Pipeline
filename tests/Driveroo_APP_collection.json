@@ -9,6 +9,102 @@
 			"name": "Resolve with assing on sumbody",
 			"item": [
 				{
+					"name": "{{sand}}/userApi/fleets/login - change user1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7a29772d-3999-460e-a0c4-3e5238ae1fde",
+								"exec": [
+									"",
+									"var responseJson = pm.response.json();",
+									"",
+									"pm.globals.set(\"token_id\", responseJson.token);",
+									"// pm.collectionVariables.set(\"token_id\", responseJson.token);",
+									"// pm.environment.set(\"token_id\", responseJson.token);",
+									"// console.log(pm.globals.get(\"token_id\"));",
+									"",
+									"",
+									"/*",
+									"// получить глобальную переменную",
+									"console.log(pm.globals.get(\"token_id\"));",
+									"// получить переменную из окружения",
+									"console.log(pm.environment.get(\"token_id\"));",
+									"// получить переменную из любого пространства согласно приоритету",
+									"console.log(pm.variables.get(\"token_id\"));",
+									"*/",
+									"",
+									"",
+									"pm.test(\"Response time is less than 2400ms\", function () {",
+									"    console.log(\"Response time is \"+pm.response.responseTime);",
+									"    pm.expect(pm.response.responseTime).to.be.below(2400);",
+									"});",
+									"",
+									"pm.test(\"Create new user\", function () {",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"The response is JSON and type 'object'\", () => {",
+									"    pm.response.to.be.json;",
+									"    pm.expect(responseJson).to.be.an(\"object\");",
+									"});",
+									"",
+									"pm.test(\"The response has all properties\", () => {",
+									"    pm.expect(responseJson).to.have.any.keys('name');",
+									"    pm.expect(responseJson).to.have.property('name');",
+									"    pm.expect(responseJson.name).to.be.a('string');",
+									"    pm.expect(responseJson.email).to.have.lengthOf(24);",
+									"    pm.expect(responseJson.type).to.eql('fleet');",
+									"    pm.expect(responseJson.email).to.eql(\"sergeyk+000@driveroo.com\"); ",
+									"    pm.expect(responseJson.name).to.eql('Chuck Norris');",
+									"    pm.expect(responseJson.email).not.eq(undefined); //To Check if Value is Null",
+									"});",
+									"",
+									"pm.test(\"To check if Value eql in the response \", () => {",
+									"    pm.expect(responseJson.type).to.eql('fleet');",
+									"    pm.expect(responseJson.email).to.eql(\"sergeyk+000@driveroo.com\"); ",
+									"    pm.expect(responseJson.name).to.eql('Chuck Norris');",
+									"    pm.expect(responseJson.email).not.eq(undefined); //To Check if Value is Null",
+									"});",
+									"pm.test(\"Check the type of properties\", () => {",
+									"    pm.expect(responseJson.name).to.be.a('string');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"sergeyk+000@driveroo.com\",\n    \"password\": \"123456\",\n    \"device_token\": \"73e879b8-eac0-46df-aa32-16bddadcebff\",\n    \"device_type\": \"web\",\n    \"login_by\": \"manual\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{sand}}/userApi/fleets/login",
+							"host": [
+								"{{sand}}"
+							],
+							"path": [
+								"userApi",
+								"fleets",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "/userApi/fleets/cars - Create car",
 					"event": [
 						{
@@ -2621,62 +2717,62 @@
 	],
 	"variable": [
 		{
-			"id": "4b89e11a-af4d-436a-ab85-85b61cc03790",
+			"id": "b8dc23b8-bf5e-4c06-9c59-e396e616d3c1",
 			"key": "sand",
 			"value": "https://sandbox.driveroo.com"
 		},
 		{
-			"id": "ea4791d7-9c4c-40c2-87f9-982693fdf3b7",
+			"id": "ef8f1a16-7253-4072-a29c-49872d79c26c",
 			"key": "prod",
 			"value": "https://lp.driveroo.com/driveroo"
 		},
 		{
-			"id": "a991322a-de66-4dce-b966-1bc74e27a987",
+			"id": "485a66a5-a372-4672-bddf-7976383e527f",
 			"key": "car_id_resolve",
 			"value": ""
 		},
 		{
-			"id": "b2827dd0-60f7-456f-af1a-5b8d4d85788f",
+			"id": "4522f333-d0ff-49dc-af81-e727c2a64702",
 			"key": "request_id_fleet",
 			"value": ""
 		},
 		{
-			"id": "d4142269-a713-4e1b-a6e6-d08839fdd01e",
+			"id": "a769c6a8-cb0b-4f80-a302-20476c82623b",
 			"key": "issues_id",
 			"value": ""
 		},
 		{
-			"id": "75f67e2a-b733-4079-9ba6-99e2af9f25e7",
+			"id": "82b0f1f1-ddac-4870-8449-fb6ec782304a",
 			"key": "work_order_id",
 			"value": ""
 		},
 		{
-			"id": "112f884a-2ff2-48c8-b69f-98e4608c9fcd",
+			"id": "7beca96a-f94d-4802-81b9-f2335aa532a8",
 			"key": "issues_id[0]",
 			"value": ""
 		},
 		{
-			"id": "85f753db-9671-4ba8-9b09-a4c6e75d65a7",
+			"id": "2c170ac6-3726-4c28-9e67-8c3655766e9f",
 			"key": "issues_id[1]",
 			"value": ""
 		},
 		{
-			"id": "75eea77e-a971-4a26-8a15-9ff52aeeefe0",
+			"id": "314e0b27-089a-4f69-9894-7a340f7ae42e",
 			"key": "issues_id[2]",
 			"value": ""
 		},
 		{
-			"id": "ab4a23d8-d9b6-4835-bcd3-ae028d5994de",
+			"id": "75fa6d59-4cd4-431f-b52f-69c2ab98a25a",
 			"key": "token_id_prod",
 			"value": ""
 		},
 		{
-			"id": "9489a186-19cc-4775-a108-b266e2a7b813",
+			"id": "1b9987cd-b6fe-43d1-9a7b-40eabc2b0d3a",
 			"key": "issues_id[3]",
 			"value": ""
 		},
 		{
-			"id": "91b688a1-c573-4e41-8cf7-a326313feb69",
+			"id": "2acda4d8-9ba2-4b67-8249-02bfe93b45c6",
 			"key": "issues_id[4]",
 			"value": ""
 		}
